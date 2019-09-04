@@ -20,3 +20,11 @@ repository = "https://github.com/carllerche/slab"
 readme = "README.md"
 keywords = ["slab", "allocator"]
 categories = ["memory-management", "data-structures"]
+exclude = ["sgx/*",]
+
+[features]
+default = ["mesalock_sgx"]
+mesalock_sgx = ["sgx_tstd"]
+
+[dependencies]
+sgx_tstd = { rev = "v1.0.8", git = "https://github.com/baidu/rust-sgx-sdk.git", optional = true }
